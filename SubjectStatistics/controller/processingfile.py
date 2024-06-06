@@ -1,5 +1,6 @@
 from SubjectStatistics.models import file
 
 def processing_file():
-    processing_file = file.ReadFile()
-    pass
+    read_file = file.ReadFile()
+    read_file.read()
+    read_file.display_file()

@@ -1,17 +1,24 @@
 import pandas as pd
 
-class File():
-    pass
+class File(object):
+    file_path = r"C:\Users\User\PycharmProjects\GraduationResearch\CsvFiles\data.csv"
+    def __init__(self):
+        self.filepath = File.file_path
 
 class ReadFile(File):
-    # CSVファイルのパスを指定
-    file_path = r"C:\Users\User\PycharmProjects\GraduationResearch\CsvFiles\data.csv"
+    def __init__(self):
+        super().__init__()
 
-    # CSVファイルをデータフレームとして読み込む
-    df = pd.read_csv(file_path)
+    def read(self):
+        with open(self.filepath, 'r', encoding="utf-8") as file:
+            self.content = file.read()
+        return self.content
 
-    # データフレームを表示する
-    print(df)
+    def display_file(self):
+        if self.content is None:
+            self.read()
+        df = pd.read_csv(self.filepath)
+        print(df.head())
 
 class ProcessingFile(File):
     pass
