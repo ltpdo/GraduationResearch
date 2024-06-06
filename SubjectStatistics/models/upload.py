@@ -33,7 +33,6 @@ class UploadFile(object):
             except shutil.SameFileError as e:
                 self.label.config(text="エラー: 既にアップロードされているファイルです。")
 
-
     def is_csv_file(self, file_path):
         filename, file_extension = os.path.splitext(file_path)
         return file_path.lower().endswith('.csv')

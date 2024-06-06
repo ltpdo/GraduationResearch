@@ -2,6 +2,7 @@ import pandas as pd
 
 
 class File(object):
+    # ファイルの保存場所
     directory_path = r"C:\Users\User\PycharmProjects\GraduationResearch\CsvFiles\\"
     file_name = "data.csv"
     file_path = directory_path + file_name
@@ -15,6 +16,7 @@ class ReadFile(File):
         super().__init__()
         self.content = None
 
+    # ファイルの読み込み
     def read(self):
         with open(self.filepath, 'r', encoding="utf-8") as file:
             self.content = file.read()
@@ -24,6 +26,7 @@ class ReadFile(File):
         print("CSVファイルを表示します。")
         if self.content is None:
             self.read()
+        # csvファイルをデータフレーム化
         df = pd.read_csv(self.filepath)
         print(df.head())
 
