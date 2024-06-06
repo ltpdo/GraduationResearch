@@ -1,0 +1,3 @@
+import SubjectStatistics.controller.processingfile
+
+SubjectStatistics.controller.processingfile.processing_file()
